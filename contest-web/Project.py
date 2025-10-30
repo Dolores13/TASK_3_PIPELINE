@@ -1,7 +1,7 @@
 
 from flask import Flask, request
 
-app = Flask(__name__)
+web = Flask(__name__)
 FICHERO = "users.txt"
 
 HTML_FORM = """
