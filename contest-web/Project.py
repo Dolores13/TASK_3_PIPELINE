@@ -27,11 +27,11 @@ def save_registration(name, age):
         print(f"Error saving registration: {e}")
         return False
     
-@app.route('/', methods=['GET'])
+@web.route('/', methods=['GET'])
 def home():
     return HTML_FORM
 
-@app.route("/register", methods=["POST"])
+@web.route("/register", methods=["POST"])
 def register():
     name = request.form.get("name", "").strip()
     age = request.form.get("age", "").strip()
@@ -40,7 +40,7 @@ def register():
     save_registration(name, int(age))
     return '<p style="color:green">Saved! <a href="/">Back</a> | <a href="/list">See list</a></p>'
 
-@app.route("/list", methods=["GET"])
+@web.route("/list", methods=["GET"])
 def list_users():
     filas = []
     try:
