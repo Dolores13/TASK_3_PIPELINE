@@ -1,7 +1,7 @@
 
 from flask import Flask, request
 
-web = Flask(__name__)
+app = Flask(__name__)
 FICHERO = "users.txt"
 
 HTML_FORM = """
@@ -27,11 +27,11 @@ def save_registration(name, age):
         print(f"Error saving registration: {e}")
         return False
     
-@web.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return HTML_FORM
 
-@web.route("/register", methods=["POST"])
+@app.route("/register", methods=["POST"])
 def register():
     name = request.form.get("name", "").strip()
     age = request.form.get("age", "").strip()
@@ -40,7 +40,7 @@ def register():
     save_registration(name, int(age))
     return '<p style="color:green">Saved! <a href="/">Back</a> | <a href="/list">See list</a></p>'
 
-@web.route("/list", methods=["GET"])
+@app.route("/list", methods=["GET"])
 def list_users():
     filas = []
     try:
@@ -56,4 +56,4 @@ def list_users():
     return f"<h1>Registrations</h1>{tabla}<p><a href='/'>Back to form</a></p>"
 
 if __name__ == "__main__":
-    web.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8000)
