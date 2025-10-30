@@ -56,4 +56,4 @@ def list_users():
     return f"<h1>Registrations</h1>{tabla}<p><a href='/'>Back to form</a></p>"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    web.run(host="0.0.0.0", port=8000)
