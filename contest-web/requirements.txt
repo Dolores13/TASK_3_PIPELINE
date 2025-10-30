@@ -1,0 +1,4 @@
+flask
+pytest
+
+# Requirements for the contest-web application
